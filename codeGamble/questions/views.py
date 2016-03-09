@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponse,JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt, csrf_protect
+from django.core.exceptions import SuspiciousOperation,ObjectDoesNotExist
 from users.models import *
 from questions.models import *
 from questions.forms import AnswerForm
@@ -19,8 +20,12 @@ def QuestionsPage(request):
             return redirect(reverse('win_page'))
         else:
             if request.method == 'GET':
-                question = Question.objects.get(current=True)
-                
+                try:
+                    question = Question.objects.get(current=True)
+                except ObjectDoesNotExist:
+                    request.user.user_profile.win = True
+                    request.user.user_profile.save()
+                    return redirect(reverse('win_page'))
                 answer_form = AnswerForm()
                 return render(request,'Questions/questionspage.html',{"question":question,"answer_form":answer_form})
             elif request.method == 'POST':
@@ -96,4 +101,6 @@ def MoveNext(request):
         curr_ques.next.save()
         curr_ques.current = False
         curr_ques.save()
+    curr_ques.current = False
+    curr_ques.save()
     return redirect(reverse('leaderboard'))
