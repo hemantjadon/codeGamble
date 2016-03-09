@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+   <head lang="en">
+       <title>CodeGamble 2016</title>
+       <link rel="shortcut icon" href={% static "images/algosoc-logo.min.ico" %} />
+       <meta charset="utf-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+       <link href={% static "Home/css/instructionspage.css" %}/ type="text/css" rel="stylesheet">
+       <body>
+           <div class="ribbon">
+           </div>
+           
+           <div class="container">
+               <div class="row">
+                    <div class="col s12">
+                    <div class="card grey lighten-5">
+                        <div class="ui-button btn-floating btn-large waves-effect waves-light red">
+                            <i class="fa fa-file-text-o"></i>
+                        </div>
+                        <div class="card-content black-text">
+                        <span class="card-title">Instructions</span>
+                        </div>
+                        <div class="card-action">
+                            <ul>
+                                <li>There will be a number of mathemetical questions.</li>
+                                <li>You can proceed to next question only after correctly answering the first one.</li>
+                                <li>Each question has 100 points and tie breaker will be based on time taken for solving the questions</li>
+                                <li>You need to have your Innovision-Id for collecting prizes in future.</li>
+                                <li>Unfair means will lead to disqualification.</li>
+                                <li>This is a single member event.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+           </div>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+       </body>
+   </head>
+</html>

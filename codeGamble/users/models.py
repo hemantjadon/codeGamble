@@ -21,6 +21,6 @@ class UserProfile(models.Model):#-------------------Profile Of User
     points = models.IntegerField(default=0)
     win = models.BooleanField(default=False)
     def __str__(self):
-        return "%s's Profile"%self.user.__str__()
+        return "%s's Profile"%self.team_name
     class Meta:
         ordering = ['time_counter']

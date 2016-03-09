@@ -2,12 +2,11 @@
 {% load staticfiles %}
 <html>
    <head lang="en">
-       <title>CodeMaze 2016</title>
+       <title>CodeGamble 2016</title>
        <link rel="shortcut icon" href={% static "images/algosoc-logo.min.ico" %} />
        <meta charset="utf-8">
        <meta http-equiv="X-UA-Compatible" content="IE=edge">
        <meta name="viewport" content="width=device-width, initial-scale=1">
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
        <link href={% static "Home/css/homepage.css" %}/ type="text/css" rel="stylesheet">
@@ -15,6 +14,37 @@
    <body>
        <div class="ribbon">
        </div>
-       {{key}}
+       <div class="outerBox">
+           <div class="row main">
+               <div class="col s12 m12 l6 offset-l3">
+               <div class="card grey lighten-5">
+                  <div class="ui-button btn-floating btn-large waves-effect waves-light">
+                     &spades;
+                  </div>
+                   <div class="card-content black-text">
+                       <h4 class="card-title">CodeGamble - 2016</h4>
+                       {% if contest == "begin" %}
+                            <h5 class="card-discription">The Contest will begin <br/> tomorrow at 10 am </h5>
+                       {% else %}
+                            <div class="loginBox">
+                                <span>Sign in with &nbsp;&nbsp;: &nbsp;&nbsp;</span>
+                                <a href={% url "social:begin" "facebook" %} class="login-button facebook btn-floating btn-large waves-effect waves-light">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <span>&nbsp;&nbsp;&nbsp;</span>
+                                <a href={% url "social:begin" "google-oauth2" %} class="login-button google btn-floating btn-large waves-effect waves-light">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                       {%  endif %}
+                   </div>
+                   <div class="card-footer">
+                       <h4>Before betting to the pool <br/> Read the <a href={% url "instructions_page" %}>Instructions</a></h4>
+                   </div>
+               </div>
+               </div>
+           </div>
+       </div>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
    </body>
 </html>
