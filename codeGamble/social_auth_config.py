@@ -1,3 +1,5 @@
+import os
+
 SOCIAL_AUTH_USER_MODEL='users.AuthUser'
 
 SOCIAL_AUTH_LOGIN_URL= '/'
