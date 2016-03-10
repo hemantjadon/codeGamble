@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'codeGamble.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -100,7 +100,7 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -144,4 +144,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'dist'),
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR,'www/static/')
+STATIC_ROOT = '/staticfiles/'
