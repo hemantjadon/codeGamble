@@ -144,4 +144,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'dist'),
 )
 
-STATIC_ROOT = '/staticfiles/'
+STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
