@@ -38,7 +38,7 @@ def QuestionsPage(request):
                     line1 = recieved_file.readline()
                     
                     line2 = sample_file.readline()
-                    while line1 != bytes('','utf-8') or line2 != bytes('','utf-8'):
+                    while line1 != bytes('#','utf-8') or line2 != bytes('#','utf-8'):
                         print(line1,line2)
                         if line1 != line2:
                             flag = False
