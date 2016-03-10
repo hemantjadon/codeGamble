@@ -12,7 +12,10 @@
        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.min.js"></script>
        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-       <link href={% static "Questions/css/leaderboard.css" %}/ type="text/css" rel="stylesheet">
+       <!--<link href={% static "Questions/css/leaderboard.css" %}/ type="text/css" rel="stylesheet">-->
+       <style>
+           body{background-color:#fafafa}body .ribbon{width:100vw;height:3px;position:absolute;top:0;left:0;background-color:#F44336}body .card .card-action ul,body .card .card-action ul li{background-color:transparent}body .next-button{position:fixed;bottom:40px;right:40px}body .card .card-content{padding:0 20px;border-top:3px solid #FF9800;margin-top:50px}body .card .card-content h4{font-size:.9em;font-weight:400}body .card .card-action{padding:0}body .card .card-action ul{margin:0;border-top:0}
+       </style>
    </head>
    <body>
        <div class="ribbon">
@@ -37,6 +40,9 @@
                
            });
        </script>
-       <script src={% static "Questions/js/reactpart-min.js" %} type="text/javascript"></script>
+       <script>
+           var LeaderBoard=React.createClass({displayName:"LeaderBoard",getInitialState:function(){return{list:[]}},fetchLeaders:function(){var e=window.location.origin+this.props.url;$.ajax({url:e,dataType:"json",cache:!1,success:function(e){this.setState({list:e})}.bind(this),error:function(e,t,a){console.log(e)}.bind(this)})},componentDidMount:function(){this.fetchLeaders(),setInterval(this.fetchLeaders,3e4)},render:function(){var e=this.state.list.list;return console.log(e),void 0!==e?React.createElement("div",{className:"outerBox"},React.createElement("div",{className:"card grey lighten-5"},React.createElement("div",{className:"card-content"},React.createElement("span",{className:"card-title"},React.createElement("h4",null,"Leader Board"))),React.createElement("div",{className:"card-action"},React.createElement("ul",{className:"collection"},e.map(function(e,t){return React.createElement("li",{className:"collection-item",key:t},e.id,".  ",e.name)}))))):React.createElement("div",null)}});ReactDOM.render(React.createElement(LeaderBoard,{url:"/questions/leaderboard/get/"}),document.getElementById("leaderboard"));
+       </script>
+       <!--<script src={% static "Questions/js/reactpart-min.js" %} type="text/javascript"></script>-->
    </body>
 </html>
